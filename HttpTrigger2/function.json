@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+          "get"
+      ],
+      "route": "staff/{bldg}"
+  },
+  {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+  },
+  {
+      "name": "todoItems",
+      "type": "sql",
+      "direction": "in",
+      "commandText": "select * from dbo.tempEmployeeData where AccBuildingCode = @Id",
+      "commandType": "Text",
+      "parameters": "@Id = ${bldg}",
+      "connectionStringSetting": "SqlConnectionString"
+  }
+  ]
+}
