@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "getStaffById/{id:int?}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "staffs",
+      "type": "sql",
+      "direction": "in",
+      "commandText": "select * from dbo.tempEmployeeData where StaffID = @id",
+      "commandType": "Text",
+      "parameters": "@id={id}",
+      "connectionStringSetting": "SqlConnectionString"
+    }
+  ]
+}

@@ -6,23 +6,23 @@
       "direction": "in",
       "name": "req",
       "methods": [
-          "get"
+        "get"
       ],
-      "route": "staff/{bldg}"
-  },
-  {
+      "route": "getStaffByBldg/{bldg}"
+    },
+    {
       "type": "http",
       "direction": "out",
       "name": "res"
-  },
-  {
-      "name": "todoItems",
+    },
+    {
+      "name": "staffs",
       "type": "sql",
       "direction": "in",
       "commandText": "select * from dbo.tempEmployeeData where AccBuildingCode = @Bldg",
       "commandType": "Text",
       "parameters": "@Bldg={bldg}",
       "connectionStringSetting": "SqlConnectionString"
-  }
+    }
   ]
 }
